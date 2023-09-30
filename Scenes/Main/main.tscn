@@ -1,82 +1,26 @@
 [gd_scene load_steps=8 format=3 uid="uid://nfb3r4dex4jt"]
 
 [ext_resource type="PackedScene" uid="uid://ct5488hg6y8kr" path="res://Scenes/Wall/wall.tscn" id="1_7cbww"]
+[ext_resource type="PackedScene" uid="uid://jgsmp0avpwyo" path="res://Scenes/Main/starfield.tscn" id="1_cjsxc"]
 [ext_resource type="PackedScene" uid="uid://cbkkxg527wcaa" path="res://Scenes/Player/player.tscn" id="1_gbuxs"]
+[ext_resource type="PackedScene" uid="uid://cpg0tyu25sm64" path="res://Scenes/UI/ui.tscn" id="1_lvrkr"]
 [ext_resource type="Texture2D" uid="uid://dnk2p32h0045f" path="res://Scenes/Main/background_one.png" id="2_espex"]
 [ext_resource type="Script" path="res://Scenes/Main/ParallaxBackground.gd" id="3_8mbdb"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hyeoo"]
-emission_shape = 3
-emission_box_extents = Vector3(560, 1, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, 1, 0)
-spread = 0.0
-gravity = Vector3(0, 1, 0)
-initial_velocity_min = -20.0
-initial_velocity_max = -20.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pghik"]
-emission_shape = 3
-emission_box_extents = Vector3(560, 1, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, 1, 0)
-spread = 0.0
-gravity = Vector3(0, 4, 0)
-initial_velocity_min = -30.0
-initial_velocity_max = -30.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_min = 3.0
-scale_max = 3.0
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bcdu7"]
-emission_shape = 3
-emission_box_extents = Vector3(560, 1, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, 1, 0)
-spread = 0.0
-gravity = Vector3(0, 7, 0)
-initial_velocity_min = -40.0
-initial_velocity_max = -40.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_min = 5.0
-scale_max = 5.0
+[ext_resource type="PackedScene" uid="uid://b3ad0j5sy1f3a" path="res://Scenes/Items/magnet.tscn" id="7_mrnmm"]
 
 [node name="Main" type="Node2D"]
 
-[node name="StarfieldBG" type="Node2D" parent="."]
+[node name="UI" parent="." instance=ExtResource("1_lvrkr")]
 
-[node name="StarfieldBack" type="GPUParticles2D" parent="StarfieldBG"]
-z_index = -100
-position = Vector2(300, -15)
-amount = 1000
-process_material = SubResource("ParticleProcessMaterial_hyeoo")
-lifetime = 100.0
-preprocess = 200.0
+[node name="StarfieldBG" parent="." instance=ExtResource("1_cjsxc")]
+z_index = -110
 
-[node name="StarfieldMiddle" type="GPUParticles2D" parent="StarfieldBG"]
-z_index = -90
-position = Vector2(300, -15)
-amount = 250
-process_material = SubResource("ParticleProcessMaterial_pghik")
-lifetime = 100.0
-preprocess = 200.0
-
-[node name="StarfieldFront" type="GPUParticles2D" parent="StarfieldBG"]
-z_index = -80
-position = Vector2(300, -15)
-amount = 50
-process_material = SubResource("ParticleProcessMaterial_bcdu7")
-lifetime = 100.0
-preprocess = 200.0
-
-[node name="Area2D" parent="." instance=ExtResource("1_7cbww")]
+[node name="Bolt" parent="." instance=ExtResource("1_7cbww")]
+z_index = 100
 position = Vector2(-314, 33)
 
 [node name="Player" parent="." instance=ExtResource("1_gbuxs")]
+z_index = 90
 position = Vector2(347, 529)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -89,3 +33,6 @@ motion_mirroring = Vector2(0, 648)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(289, 326)
 texture = ExtResource("2_espex")
+
+[node name="Magnet" parent="." instance=ExtResource("7_mrnmm")]
+position = Vector2(187, 440)

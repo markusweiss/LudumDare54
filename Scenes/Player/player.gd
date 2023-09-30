@@ -31,5 +31,6 @@ func _physics_process(delta):
 	position.y = clamp(position.y, STOP_TOP, STOP_BOTTOM)
 
 func _on_hitzone_area_entered(area):
-	print("dead")
-	# queue_free()
+	if(area.is_in_group("wall")):
+		print("dead")
+		queue_free()

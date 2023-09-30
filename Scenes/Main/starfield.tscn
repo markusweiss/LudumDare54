@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://jgsmp0avpwyo"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ph0wk"]
+emission_shape = 3
+emission_box_extents = Vector3(560, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = -20.0
+initial_velocity_max = -20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j2pey"]
+emission_shape = 3
+emission_box_extents = Vector3(560, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 4, 0)
+initial_velocity_min = -30.0
+initial_velocity_max = -30.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 3.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cyfna"]
+emission_shape = 3
+emission_box_extents = Vector3(560, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 7, 0)
+initial_velocity_min = -40.0
+initial_velocity_max = -40.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 5.0
+scale_max = 5.0
+
+[node name="StarfieldBG" type="Node2D"]
+
+[node name="StarfieldBack" type="GPUParticles2D" parent="."]
+z_index = -100
+position = Vector2(300, -15)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_ph0wk")
+lifetime = 100.0
+preprocess = 200.0
+
+[node name="StarfieldMiddle" type="GPUParticles2D" parent="."]
+z_index = -90
+position = Vector2(300, -15)
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_j2pey")
+lifetime = 100.0
+preprocess = 200.0
+
+[node name="StarfieldFront" type="GPUParticles2D" parent="."]
+z_index = -80
+position = Vector2(300, -15)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_cyfna")
+lifetime = 100.0
+preprocess = 200.0

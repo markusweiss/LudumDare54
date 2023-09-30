@@ -13,16 +13,17 @@ func _ready():
 		direction = Vector2(0, 1)  # Bewegung nach links
 
 func _physics_process(delta):
-	if magnet:
+	if Global.magnet:
 		position += -direction * speed * delta
 	else:
 		position += direction * speed * delta
 		
 	if position.y <= 10:
-		magnet=false
+		Global.magnet=false
+		
+	if position.y >= 600:
+		Global.magnet=true
 	
 
 
 
-func _on_area_entered(area):
-	magnet=true

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3ad0j5sy1f3a"]
+
+[ext_resource type="Script" path="res://Scenes/Items/magnet.gd" id="1_etfy3"]
+[ext_resource type="Texture2D" uid="uid://ddxauvfmoikdr" path="res://Scenes/Items/magnet.png" id="1_r2fm4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cim60"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1oy6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r2fm4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Magnet" type="Area2D"]
+script = ExtResource("1_etfy3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cim60")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e1oy6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
