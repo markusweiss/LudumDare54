@@ -21,3 +21,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 	position.x = clamp(position.x, STOP_LEFT, STOP_RIGHT)
+
+
+func _on_hitzone_area_entered(area):
+	print("dead")
+	#queue_free()
