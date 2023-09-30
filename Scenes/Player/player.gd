@@ -5,6 +5,9 @@ const STOP_LEFT = 40
 const STOP_RIGHT = 540
 const STOP_TOP = 140
 const STOP_BOTTOM = 600
+const INTERPOLATION_SPEED = 8.0
+
+var target_velocity = Vector2() 
 
 func _ready():
 	$CollisionShape2D.disabled = false
@@ -14,16 +17,13 @@ func _physics_process(delta):
 	var vertical_direction = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	# Horizontal Movement
-	if horizontal_direction != 0:
-		velocity.x = horizontal_direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	target_velocity.x = horizontal_direction * SPEED
 
 	# Vertical Movement
-	if vertical_direction != 0:
-		velocity.y = vertical_direction * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+	target_velocity.y = vertical_direction * SPEED
+
+	# Interpolieren Sie die Geschwindigkeit, um ein sanftes Nachziehen zu erzeugen
+	velocity = velocity.lerp(target_velocity, INTERPOLATION_SPEED * delta)
 
 	move_and_slide()
 
