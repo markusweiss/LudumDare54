@@ -32,5 +32,5 @@ func _physics_process(delta):
 
 func _on_hitzone_area_entered(area):
 	if(area.is_in_group("wall")):
-		print("dead")
 		queue_free()
+		get_tree().change_scene_to_file("res://Scenes/Death/death.tscn")

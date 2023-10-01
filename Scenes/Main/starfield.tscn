@@ -48,7 +48,7 @@ position = Vector2(300, -15)
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_ph0wk")
 lifetime = 100.0
-preprocess = 200.0
+preprocess = 70.0
 
 [node name="StarfieldMiddle" type="GPUParticles2D" parent="."]
 z_index = -90
@@ -56,7 +56,7 @@ position = Vector2(300, -15)
 amount = 250
 process_material = SubResource("ParticleProcessMaterial_j2pey")
 lifetime = 100.0
-preprocess = 200.0
+preprocess = 70.0
 
 [node name="StarfieldFront" type="GPUParticles2D" parent="."]
 z_index = -80
@@ -64,4 +64,4 @@ position = Vector2(300, -15)
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_cyfna")
 lifetime = 100.0
-preprocess = 200.0
+preprocess = 70.0
