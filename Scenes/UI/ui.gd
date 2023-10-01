@@ -12,5 +12,5 @@ func _physics_process(delta):
 		if (Global.magnet):
 			extraPoints += 10
 			
-		var all = baseScore + extraPoints
-		$MarginContainer/MarginContainer/HBoxContainer/ScoreValue.text = str(all)
+		Global.scoreTogether = baseScore + extraPoints
+		$MarginContainer/MarginContainer/HBoxContainer/ScoreValue.text = str(Global.scoreTogether)
