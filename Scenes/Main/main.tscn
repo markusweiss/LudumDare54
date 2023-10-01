@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://nfb3r4dex4jt"]
+[gd_scene load_steps=9 format=3 uid="uid://nfb3r4dex4jt"]
 
 [ext_resource type="PackedScene" uid="uid://ct5488hg6y8kr" path="res://Scenes/Wall/wall.tscn" id="1_7cbww"]
 [ext_resource type="PackedScene" uid="uid://jgsmp0avpwyo" path="res://Scenes/Main/starfield.tscn" id="1_cjsxc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dnk2p32h0045f" path="res://Scenes/Main/background_one.png" id="2_espex"]
 [ext_resource type="Script" path="res://Scenes/Main/ParallaxBackground.gd" id="3_8mbdb"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnMagnet.gd" id="8_mlruu"]
+[ext_resource type="Script" path="res://Scenes/Main/SpawnAsteroid.gd" id="8_nwqen"]
 
 [node name="Main" type="Node2D"]
 
@@ -41,4 +42,12 @@ script = ExtResource("8_mlruu")
 wait_time = 5.0
 autostart = true
 
+[node name="SpawnAsteroid" type="Node2D" parent="."]
+script = ExtResource("8_nwqen")
+
+[node name="CreateAsteroid" type="Timer" parent="SpawnAsteroid"]
+wait_time = 1.8
+autostart = true
+
 [connection signal="timeout" from="SpawnMagnet/CreateMagnet" to="SpawnMagnet" method="_on_create_magnet_timeout"]
+[connection signal="timeout" from="SpawnAsteroid/CreateAsteroid" to="SpawnAsteroid" method="_on_create_asteroid_timeout"]

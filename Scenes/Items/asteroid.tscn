@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0bgfk8fchd7j"]
+
+[ext_resource type="Texture2D" uid="uid://bvgwgdsaigjfd" path="res://Scenes/Items/asteroid.png" id="1_ag4vn"]
+[ext_resource type="Script" path="res://Scenes/Items/asteroid.gd" id="1_w8u5h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gborc"]
+radius = 21.095
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bkx6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ag4vn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Asteroid" type="Area2D" groups=["wall"]]
+script = ExtResource("1_w8u5h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gborc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bkx6c")
