@@ -20,6 +20,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	Global.empPower += 1
+	Global.empCapsules +=1
+	Global.empMegaBeam += 1
 	if (!soundPlayed):
 		$EMP.play()
 		soundPlayed = true

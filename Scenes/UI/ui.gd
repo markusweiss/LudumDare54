@@ -16,3 +16,5 @@ func _physics_process(delta):
 		$MarginContainer/MarginContainer/HBoxContainer/ScoreValue.text = str(Global.scoreTogether)
 
 		$MarginContainer/MarginContainer/EmpBar/ProgressBar.value = Global.empPower
+		
+		$MarginContainer/MarginContainer/EmpMega/ProgressBar.value = Global.empMegaBeam

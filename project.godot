@@ -21,9 +21,8 @@ Global="*res://global.gd"
 
 [display]
 
-window/size/viewport_height=1296
+window/size/viewport_width=576
 window/size/resizable=false
-window/stretch/scale=2.0
 window/handheld/orientation=1
 
 [input]
