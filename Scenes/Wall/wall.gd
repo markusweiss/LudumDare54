@@ -35,5 +35,5 @@ func _input(event):
 	if event.is_action_pressed("emp") && Global.empPower >= 5:
 		Global.magnet=true
 		Global.empPower = 0
-
+		$Shoot.play()
 

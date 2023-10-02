@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct5488hg6y8kr"]
+[gd_scene load_steps=7 format=3 uid="uid://ct5488hg6y8kr"]
 
 [ext_resource type="Texture2D" uid="uid://bej7bk0wwd1eq" path="res://Scenes/Wall/wall.png" id="1_464h8"]
 [ext_resource type="Script" path="res://Scenes/Wall/wall.gd" id="1_qr6f4"]
 [ext_resource type="Shader" path="res://Scenes/Wall/wall.gdshader" id="2_wyap0"]
+[ext_resource type="AudioStream" uid="uid://bq5wxehtjwaq2" path="res://Sounds/empshoot.mp3" id="4_0qup2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh5b7"]
 size = Vector2(1286, 47)
@@ -39,3 +40,7 @@ material = SubResource("ShaderMaterial_iynd0")
 position = Vector2(493, 34)
 scale = Vector2(32.4762, 0.753087)
 texture = ExtResource("1_464h8")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0qup2")
+volume_db = 17.0

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func _ready():
+	Global.empPower = 0
 	%Score.text = str(Global.scoreTogether) + " points"
 	if Global.scoreTogether > Global.highScore:
 		Global.highScore =Global.scoreTogether
