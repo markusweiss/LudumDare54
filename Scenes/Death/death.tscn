@@ -6,13 +6,6 @@
 [node name="Dead" type="CanvasLayer"]
 script = ExtResource("1_7bo3a")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = -65.0
-offset_right = 1202.0
-offset_bottom = 1358.0
-color = Color(0.141176, 0, 0.164706, 1)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(288, 324)
 texture = ExtResource("2_ost8g")
@@ -75,4 +68,5 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/BackToStart" to="." method="_on_back_to_start_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

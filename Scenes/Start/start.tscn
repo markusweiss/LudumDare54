@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbmiu7h5ub00j"]
+
+[ext_resource type="Script" path="res://Scenes/Start/start.gd" id="1_0yo5n"]
+[ext_resource type="Texture2D" uid="uid://dxrypusta8p08" path="res://Scenes/Death/static_bg.png" id="1_kfns4"]
+
+[node name="Start" type="CanvasLayer"]
+script = ExtResource("1_0yo5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(287, 325)
+texture = ExtResource("1_kfns4")
+
+[node name="PanelContainer" type="PanelContainer" parent="Sprite2D"]
+custom_minimum_size = Vector2(400, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -488.0
+offset_top = -524.0
+offset_right = -88.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Sprite2D/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your Highscore is:"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="Sprite2D/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="StartGame" type="Button" parent="Sprite2D/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start Game"
+
+[node name="Archivements" type="Button" parent="Sprite2D/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Archivements"
+
+[node name="QuitGame" type="Button" parent="Sprite2D/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit Game"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Sprite2D"]
+custom_minimum_size = Vector2(400, 100)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = -324.0
+offset_right = -288.0
+offset_bottom = -324.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Sprite2D/PanelContainer2"]
+layout_mode = 2
+text = "Welcome to LudumDare54"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Sprite2D/PanelContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Sprite2D/PanelContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

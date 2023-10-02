@@ -31,5 +31,8 @@ func _physics_process(delta):
 		Global.magnet=true
 	
 
+func _input(event):
+	if event.is_action_pressed("emp"):
+		Global.magnet=true
 
 
