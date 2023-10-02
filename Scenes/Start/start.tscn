@@ -30,11 +30,15 @@ theme_override_constants/separation = 20
 [node name="header" type="PanelContainer" parent="Sprite2D/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Sprite2D/VBoxContainer/header"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Sprite2D/VBoxContainer/header"]
 layout_mode = 2
-text = "Welcome to LudumDare54
-Theme is Limited Space"
-horizontal_alignment = 1
+bbcode_enabled = true
+text = "[center]
+Welcome to LudumDare54 -Limited Space
+[color=#ff00ff][font_size=24]MAGNETIC RESCUE[/font_size][/color]
+
+[center]"
+fit_content = true
 
 [node name="middle" type="PanelContainer" parent="Sprite2D/VBoxContainer"]
 layout_mode = 2
@@ -83,6 +87,7 @@ size_flags_vertical = 4
 text = "Start Game"
 
 [node name="Archivements" type="Button" parent="Sprite2D/VBoxContainer/bottom/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 text = "Archivements"

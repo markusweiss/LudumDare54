@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bati3kcq2wenx"]
+
+[ext_resource type="Texture2D" uid="uid://eud4snmbhx3b" path="res://Scenes/Explosion/explosion_spacer.png" id="1_v8gqf"]
+[ext_resource type="Script" path="res://Scenes/Explosion/explosion.gd" id="2_fkawr"]
+[ext_resource type="AudioStream" uid="uid://bq5wxehtjwaq2" path="res://Sounds/empshoot.mp3" id="3_k2y4b"]
+
+[node name="Explosion" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(292, 330.5)
+scale = Vector2(-71.0251, 71.5974)
+texture = ExtResource("1_v8gqf")
+script = ExtResource("2_fkawr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k2y4b")
+volume_db = 17.0
+
+[connection signal="timeout" from="Timer" to="Sprite2D" method="_on_timer_timeout"]

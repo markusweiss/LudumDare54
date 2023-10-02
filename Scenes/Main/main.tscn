@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://nfb3r4dex4jt"]
+[gd_scene load_steps=12 format=3 uid="uid://nfb3r4dex4jt"]
 
 [ext_resource type="PackedScene" uid="uid://ct5488hg6y8kr" path="res://Scenes/Wall/wall.tscn" id="1_7cbww"]
 [ext_resource type="PackedScene" uid="uid://jgsmp0avpwyo" path="res://Scenes/Main/starfield.tscn" id="1_cjsxc"]
 [ext_resource type="PackedScene" uid="uid://cbkkxg527wcaa" path="res://Scenes/Player/player.tscn" id="1_gbuxs"]
 [ext_resource type="PackedScene" uid="uid://cpg0tyu25sm64" path="res://Scenes/UI/ui.tscn" id="1_lvrkr"]
 [ext_resource type="Texture2D" uid="uid://dnk2p32h0045f" path="res://Scenes/Main/background_one.png" id="2_espex"]
+[ext_resource type="PackedScene" uid="uid://bati3kcq2wenx" path="res://Scenes/Explosion/explosion.tscn" id="2_nscmp"]
 [ext_resource type="Script" path="res://Scenes/Main/ParallaxBackground.gd" id="3_8mbdb"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnEMP.gd" id="8_3ujk2"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnMagnet.gd" id="8_mlruu"]
@@ -14,6 +15,8 @@
 [node name="Main" type="Node2D"]
 
 [node name="UI" parent="." instance=ExtResource("1_lvrkr")]
+
+[node name="Explosion" parent="." instance=ExtResource("2_nscmp")]
 
 [node name="StarfieldBG" parent="." instance=ExtResource("1_cjsxc")]
 z_index = -110
@@ -41,7 +44,7 @@ texture = ExtResource("2_espex")
 script = ExtResource("8_mlruu")
 
 [node name="CreateMagnet" type="Timer" parent="SpawnMagnet"]
-wait_time = 5.0
+wait_time = 4.0
 autostart = true
 
 [node name="SpawnEMP" type="Node2D" parent="."]
