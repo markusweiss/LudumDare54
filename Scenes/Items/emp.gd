@@ -18,5 +18,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	Global.empPower += 1
-	print (Global.empPower)
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://nfb3r4dex4jt"]
+[gd_scene load_steps=11 format=3 uid="uid://nfb3r4dex4jt"]
 
 [ext_resource type="PackedScene" uid="uid://ct5488hg6y8kr" path="res://Scenes/Wall/wall.tscn" id="1_7cbww"]
 [ext_resource type="PackedScene" uid="uid://jgsmp0avpwyo" path="res://Scenes/Main/starfield.tscn" id="1_cjsxc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes/Main/SpawnEMP.gd" id="8_3ujk2"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnMagnet.gd" id="8_mlruu"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnAsteroid.gd" id="8_nwqen"]
+[ext_resource type="Script" path="res://Scenes/Main/AudioStreamPlayer.gd" id="10_sdkx0"]
 
 [node name="Main" type="Node2D"]
 
@@ -57,6 +58,10 @@ script = ExtResource("8_nwqen")
 wait_time = 1.8
 autostart = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("10_sdkx0")
+
 [connection signal="timeout" from="SpawnMagnet/CreateMagnet" to="SpawnMagnet" method="_on_create_magnet_timeout"]
 [connection signal="timeout" from="SpawnEMP/CreateEMP" to="SpawnEMP" method="_on_create_magnet_timeout"]
 [connection signal="timeout" from="SpawnAsteroid/CreateAsteroid" to="SpawnAsteroid" method="_on_create_asteroid_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
