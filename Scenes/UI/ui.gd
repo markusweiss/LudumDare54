@@ -14,3 +14,5 @@ func _physics_process(delta):
 			
 		Global.scoreTogether = baseScore + extraPoints
 		$MarginContainer/MarginContainer/HBoxContainer/ScoreValue.text = str(Global.scoreTogether)
+
+		$MarginContainer/MarginContainer/EmpBar/ProgressBar.value = Global.empPower

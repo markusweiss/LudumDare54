@@ -15,3 +15,8 @@ func _process(delta):
 	position.y += speed * delta
 	if position.y > 700:
 		queue_free()
+
+func _on_body_entered(body):
+	Global.empPower += 1
+	print (Global.empPower)
+	queue_free()
