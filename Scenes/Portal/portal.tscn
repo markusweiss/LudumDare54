@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://j1dywheenhwd"]
+
+[sub_resource type="Gradient" id="Gradient_v0b6p"]
+offsets = PackedFloat32Array(0, 0.522222, 1)
+colors = PackedColorArray(0.2, 0.972549, 0.894118, 1, 0.723625, 0.644284, 0.999767, 1, 0.502795, 0.000179095, 0.502792, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sy2ql"]
+gradient = SubResource("Gradient_v0b6p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_obarf"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 30.0
+emission_ring_inner_radius = 0.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.5
+color = Color(0.462745, 0.831373, 1, 1)
+color_ramp = SubResource("GradientTexture1D_sy2ql")
+hue_variation_max = 0.1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mv4ml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m25rm"]
+radius = 39.0128
+
+[node name="Portal" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(2, 0)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_obarf")
+trail_enabled = true
+trail_section_subdivisions = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mv4ml")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -7)
+shape = SubResource("CircleShape2D_m25rm")

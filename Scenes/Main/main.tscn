@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://nfb3r4dex4jt"]
+[gd_scene load_steps=13 format=3 uid="uid://nfb3r4dex4jt"]
 
 [ext_resource type="PackedScene" uid="uid://ct5488hg6y8kr" path="res://Scenes/Wall/wall.tscn" id="1_7cbww"]
 [ext_resource type="PackedScene" uid="uid://jgsmp0avpwyo" path="res://Scenes/Main/starfield.tscn" id="1_cjsxc"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Main/SpawnMagnet.gd" id="8_mlruu"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnAsteroid.gd" id="8_nwqen"]
 [ext_resource type="Script" path="res://Scenes/Main/AudioStreamPlayer.gd" id="10_sdkx0"]
+[ext_resource type="PackedScene" uid="uid://j1dywheenhwd" path="res://Scenes/Portal/portal.tscn" id="12_v4t0a"]
 
 [node name="Main" type="Node2D"]
 
@@ -63,6 +64,9 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("10_sdkx0")
+
+[node name="Portal" parent="." instance=ExtResource("12_v4t0a")]
+position = Vector2(287, 329)
 
 [connection signal="timeout" from="SpawnMagnet/CreateMagnet" to="SpawnMagnet" method="_on_create_magnet_timeout"]
 [connection signal="timeout" from="SpawnEMP/CreateEMP" to="SpawnEMP" method="_on_create_magnet_timeout"]
