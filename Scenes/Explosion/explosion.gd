@@ -30,14 +30,14 @@ func _input(event):
 		activate_shader()
 		$"../Timer".start()  # Start the timer node to deactivate the shader after 1 second
 		
-		if(Global.empMegaBeam >= Global.empMegaBeamWin):
-			Global.magnet = true
-			Global.empPower = 0
-			$"../Shoot".play()
-			activate_shader()
-			$"../Timer".start()
-			await get_tree().create_timer(1.5).timeout
-			get_tree().change_scene_to_file("res://Scenes/Win/win.tscn")
+#		if(Global.empMegaBeam >= Global.empMegaBeamWin):
+#			Global.magnet = true
+#			Global.empPower = 0
+#			$"../Shoot".play()
+#			activate_shader()
+#			$"../Timer".start()
+#			await get_tree().create_timer(1.5).timeout
+#			get_tree().change_scene_to_file("res://Scenes/Win/win.tscn")
 
 func _on_timer_timeout():
 	stop_shader()

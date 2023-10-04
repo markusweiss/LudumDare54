@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Main/SpawnMagnet.gd" id="8_mlruu"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnAsteroid.gd" id="8_nwqen"]
 [ext_resource type="Script" path="res://Scenes/Main/AudioStreamPlayer.gd" id="10_sdkx0"]
-[ext_resource type="PackedScene" uid="uid://j1dywheenhwd" path="res://Scenes/Portal/portal.tscn" id="12_v4t0a"]
+[ext_resource type="Script" path="res://Scenes/Main/CreatePortal.gd" id="12_uem3w"]
 
 [node name="Main" type="Node2D"]
 
@@ -65,8 +65,8 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("10_sdkx0")
 
-[node name="Portal" parent="." instance=ExtResource("12_v4t0a")]
-position = Vector2(287, 329)
+[node name="CreatePortal" type="Node2D" parent="."]
+script = ExtResource("12_uem3w")
 
 [connection signal="timeout" from="SpawnMagnet/CreateMagnet" to="SpawnMagnet" method="_on_create_magnet_timeout"]
 [connection signal="timeout" from="SpawnEMP/CreateEMP" to="SpawnEMP" method="_on_create_magnet_timeout"]
