@@ -21,8 +21,9 @@ Global="*res://global.gd"
 
 [display]
 
-window/size/viewport_width=576
+window/size/viewport_height=1296
 window/size/resizable=false
+window/stretch/scale=2.0
 window/handheld/orientation=1
 
 [input]
@@ -60,4 +61,3 @@ emp={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"

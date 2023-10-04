@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://basljrecw71a5"]
 
-[ext_resource type="Script" path="res://Scenes/Start/start.gd" id="1_8gw35"]
+[ext_resource type="Script" path="res://Scenes/Win/win.gd" id="1_ntx4m"]
 [ext_resource type="Texture2D" uid="uid://dxrypusta8p08" path="res://Scenes/Death/static_bg.png" id="2_748mc"]
 [ext_resource type="Script" path="res://Scenes/Win/WinnerWinner.gd" id="3_kvk40"]
 [ext_resource type="AudioStream" uid="uid://bcs5rxgm7ecxb" path="res://Sounds/BonusJansBossfight.mp3" id="3_xnxtk"]
 
 [node name="Win" type="CanvasLayer"]
-script = ExtResource("1_8gw35")
+script = ExtResource("1_ntx4m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(287, 325)
@@ -93,6 +93,6 @@ stream = ExtResource("3_xnxtk")
 volume_db = 4.216
 autoplay = true
 
-[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/StartGame" to="." method="_on_start_game_pressed" flags=18]
+[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/BackToStart" to="." method="_on_back_to_start_pressed"]
-[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed" flags=18]
+[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
