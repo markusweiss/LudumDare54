@@ -32,6 +32,7 @@ hue_variation_max = 0.1
 attractor_interaction_enabled = false
 
 [node name="Portal" type="Area2D" groups=["portal"]]
+z_index = -130
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -7)

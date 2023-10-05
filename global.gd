@@ -8,7 +8,6 @@ var highScore = 0
 var empPower = 0
 var empCapsules = 0
 var empMegaBeam = 0
-var empMegaBeamWin = 3
-var winCondition = false
+var empMegaBeamWin = 5
 
-
+#enum itemTypes {asteroid, magnet, emp, portalpower}

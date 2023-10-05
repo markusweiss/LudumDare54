@@ -22,7 +22,7 @@ func stop_shader():
 
 func _input(event):
 		
-	if event.is_action_pressed("emp") && (Global.empPower >= 5 || Global.empMegaBeam >= Global.empMegaBeamWin) && !shader_active:
+	if event.is_action_pressed("emp") && (Global.empPower >= 5  && !shader_active):
 		self.material = shader_material
 		Global.magnet = true
 		Global.empPower = 0

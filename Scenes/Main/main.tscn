@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://nfb3r4dex4jt"]
+[gd_scene load_steps=18 format=3 uid="uid://nfb3r4dex4jt"]
 
 [ext_resource type="PackedScene" uid="uid://ct5488hg6y8kr" path="res://Scenes/Wall/wall.tscn" id="1_7cbww"]
 [ext_resource type="PackedScene" uid="uid://jgsmp0avpwyo" path="res://Scenes/Main/starfield.tscn" id="1_cjsxc"]
 [ext_resource type="PackedScene" uid="uid://cbkkxg527wcaa" path="res://Scenes/Player/player.tscn" id="1_gbuxs"]
 [ext_resource type="PackedScene" uid="uid://cpg0tyu25sm64" path="res://Scenes/UI/ui.tscn" id="1_lvrkr"]
+[ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_rfqla"]
 [ext_resource type="Texture2D" uid="uid://dnk2p32h0045f" path="res://Scenes/Main/background_one.png" id="2_espex"]
 [ext_resource type="PackedScene" uid="uid://bati3kcq2wenx" path="res://Scenes/Explosion/explosion.tscn" id="2_nscmp"]
 [ext_resource type="Script" path="res://Scenes/Main/ParallaxBackground.gd" id="3_8mbdb"]
@@ -12,10 +13,40 @@
 [ext_resource type="Script" path="res://Scenes/Main/SpawnAsteroid.gd" id="8_nwqen"]
 [ext_resource type="Script" path="res://Scenes/Main/AudioStreamPlayer.gd" id="10_sdkx0"]
 [ext_resource type="Script" path="res://Scenes/Main/CreatePortal.gd" id="12_uem3w"]
+[ext_resource type="Script" path="res://Scenes/Main/SpawnAtom.gd" id="12_uqndq"]
+
+[sub_resource type="Animation" id="Animation_705rp"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_qnsc8"]
+resource_name = "fly_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(289, 844), Vector2(293, 483)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsg47"]
+_data = {
+"RESET": SubResource("Animation_705rp"),
+"fly_in": SubResource("Animation_qnsc8")
+}
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_rfqla")
 
 [node name="UI" parent="." instance=ExtResource("1_lvrkr")]
+
+[node name="Player" parent="." instance=ExtResource("1_gbuxs")]
+z_index = 90
+position = Vector2(293, 483)
 
 [node name="Explosion" parent="." instance=ExtResource("2_nscmp")]
 
@@ -25,10 +56,6 @@ z_index = -110
 [node name="Bolt" parent="." instance=ExtResource("1_7cbww")]
 z_index = 100
 position = Vector2(-314, 33)
-
-[node name="Player" parent="." instance=ExtResource("1_gbuxs")]
-z_index = 90
-position = Vector2(347, 529)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -70
@@ -62,13 +89,25 @@ script = ExtResource("8_nwqen")
 wait_time = 1.8
 autostart = true
 
+[node name="SpawnAtom" type="Node2D" parent="."]
+script = ExtResource("12_uqndq")
+
+[node name="CreateAtom" type="Timer" parent="SpawnAtom"]
+autostart = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("10_sdkx0")
 
 [node name="CreatePortal" type="Node2D" parent="."]
 script = ExtResource("12_uem3w")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tsg47")
+}
+
 [connection signal="timeout" from="SpawnMagnet/CreateMagnet" to="SpawnMagnet" method="_on_create_magnet_timeout"]
 [connection signal="timeout" from="SpawnEMP/CreateEMP" to="SpawnEMP" method="_on_create_magnet_timeout"]
 [connection signal="timeout" from="SpawnAsteroid/CreateAsteroid" to="SpawnAsteroid" method="_on_create_asteroid_timeout"]
+[connection signal="timeout" from="SpawnAtom/CreateAtom" to="SpawnAtom" method="_on_create_atom_timeout"]
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
