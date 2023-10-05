@@ -62,14 +62,17 @@ horizontal_alignment = 1
 layout_mode = 2
 bbcode_enabled = true
 text = "[center]
-Use the arrow keys to collect magnets and emp energy. 
+Use the arrow keys to collect magnets.
+The emp energy bar is on the right side.
 
-Control with the arrow keys. 
-
-If EMP energy is full press spacebar.
+If  the EMP energy is full you can use it. 
+Press the spacebar.
 [color=#fbf236]
-Load yellow mega beam to escape and win
+Collect the atoms to open a Portal.
+Check the purple bar on left side.
 [/color]
+
+[up, down, left, right, spacebar]
 
 [/center]
 "

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bph35k7nuyn7k"]
+[gd_scene load_steps=6 format=3 uid="uid://bph35k7nuyn7k"]
 
 [ext_resource type="Script" path="res://Scenes/Items/atom.gd" id="1_kirgn"]
 [ext_resource type="Texture2D" uid="uid://d12gdkl2kvvyf" path="res://Scenes/Items/atom.png" id="2_6s75y"]
+[ext_resource type="AudioStream" uid="uid://cc3y22eebhgaj" path="res://Sounds/atom.mp3" id="3_kfrwj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d8j1l"]
 radius = 11.0
@@ -28,5 +29,9 @@ texture_filter = 2
 position = Vector2(0.499998, 0.151514)
 scale = Vector2(0.479167, 0.493687)
 sprite_frames = SubResource("SpriteFrames_niu60")
+
+[node name="atom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kfrwj")
+volume_db = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

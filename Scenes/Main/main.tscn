@@ -93,6 +93,7 @@ autostart = true
 script = ExtResource("12_uqndq")
 
 [node name="CreateAtom" type="Timer" parent="SpawnAtom"]
+wait_time = 2.5
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

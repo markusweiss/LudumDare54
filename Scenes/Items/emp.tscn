@@ -28,5 +28,6 @@ sprite_frames = SubResource("SpriteFrames_ieqdc")
 
 [node name="EMP" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_jvtk5")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
