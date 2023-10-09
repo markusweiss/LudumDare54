@@ -12,8 +12,8 @@
 [ext_resource type="Script" path="res://Scenes/Main/SpawnMagnet.gd" id="8_mlruu"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnAsteroid.gd" id="8_nwqen"]
 [ext_resource type="Script" path="res://Scenes/Main/AudioStreamPlayer.gd" id="10_sdkx0"]
-[ext_resource type="Script" path="res://Scenes/Main/CreatePortal.gd" id="12_uem3w"]
 [ext_resource type="Script" path="res://Scenes/Main/SpawnAtom.gd" id="12_uqndq"]
+[ext_resource type="Script" path="res://Scenes/Main/CreatePortal.gd" id="14_uo5fn"]
 
 [sub_resource type="Animation" id="Animation_705rp"]
 length = 0.001
@@ -99,13 +99,13 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("10_sdkx0")
 
-[node name="CreatePortal" type="Node2D" parent="."]
-script = ExtResource("12_uem3w")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tsg47")
 }
+
+[node name="Portal" type="Node2D" parent="."]
+script = ExtResource("14_uo5fn")
 
 [connection signal="timeout" from="SpawnMagnet/CreateMagnet" to="SpawnMagnet" method="_on_create_magnet_timeout"]
 [connection signal="timeout" from="SpawnEMP/CreateEMP" to="SpawnEMP" method="_on_create_magnet_timeout"]

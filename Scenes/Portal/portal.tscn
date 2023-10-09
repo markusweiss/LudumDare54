@@ -1,48 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://j1dywheenhwd"]
+[gd_scene load_steps=3 format=3 uid="uid://j1dywheenhwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m25rm"]
-radius = 27.1662
+radius = 14.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mv4ml"]
-
-[sub_resource type="Gradient" id="Gradient_v0b6p"]
-offsets = PackedFloat32Array(0, 0.522222, 1)
-colors = PackedColorArray(0.2, 0.972549, 0.894118, 1, 0.723625, 0.644284, 0.999767, 1, 0.502795, 0.000179095, 0.502792, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_sy2ql"]
-gradient = SubResource("Gradient_v0b6p")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_obarf"]
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 1.0
-emission_ring_radius = 50.0
-emission_ring_inner_radius = 0.0
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 150.0
-orbit_velocity_min = 1.0
-orbit_velocity_max = 1.5
-scale_min = 0.5
-scale_max = 1.5
-color = Color(0.462745, 0.831373, 1, 1)
-color_ramp = SubResource("GradientTexture1D_sy2ql")
-hue_variation_max = 0.1
-attractor_interaction_enabled = false
+[sub_resource type="Gradient" id="Gradient_vopxw"]
+colors = PackedColorArray(0, 0.207843, 0.894118, 1, 1, 1, 1, 1)
 
 [node name="Portal" type="Area2D" groups=["portal"]]
 z_index = -130
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -7)
+position = Vector2(-1, -2)
 shape = SubResource("CircleShape2D_m25rm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_mv4ml")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(2, 0)
-amount = 60
-process_material = SubResource("ParticleProcessMaterial_obarf")
-trail_enabled = true
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 200
+emission_shape = 1
+emission_sphere_radius = 40.0
+gravity = Vector2(0, -1)
+angular_velocity_min = 100.0
+angular_velocity_max = 100.0
+radial_accel_min = 29.29
+radial_accel_max = 29.29
+angle_min = 23.0
+angle_max = 23.0
+scale_amount_max = 2.0
+color = Color(0.0901961, 0.690196, 0.854902, 1)
+color_ramp = SubResource("Gradient_vopxw")

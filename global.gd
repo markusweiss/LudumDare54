@@ -11,3 +11,7 @@ var empMegaBeam = 0
 var empMegaBeamWin = 25
 
 #enum itemTypes {asteroid, magnet, emp, portalpower}
+
+var setPortal = false
+
+
