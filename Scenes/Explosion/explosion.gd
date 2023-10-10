@@ -11,7 +11,7 @@ func _ready():
 
 func activate_shader():
 	#shader_active = not shader_active
-	var shader = load("res://Scenes/Explosion/explosion.gdshader") # Ändern Sie path_to_your_shader.shader in den richtigen Pfad
+	var shader = preload("res://Scenes/Explosion/explosion.gdshader") # Ändern Sie path_to_your_shader.shader in den richtigen Pfad
 	shader_material.shader = shader
 	set_process(true) # Aktiviert den Prozess, um den Shader zu aktualisieren
 
@@ -22,7 +22,7 @@ func stop_shader():
 
 func _input(event):
 		
-	if event.is_action_pressed("emp") && (Global.empPower >= 5  && !shader_active):
+	if event.is_action_pressed("emp") && (Global.empPower >= 1  && !shader_active):
 		self.material = shader_material
 		Global.magnet = true
 		Global.empPower = 0

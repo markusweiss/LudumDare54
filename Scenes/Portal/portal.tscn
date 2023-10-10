@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://j1dywheenhwd"]
+[gd_scene load_steps=6 format=3 uid="uid://j1dywheenhwd"]
+
+[ext_resource type="Texture2D" uid="uid://dw758l3ev7tcq" path="res://Scenes/Player/ship-partikel.png" id="1_dykbx"]
+[ext_resource type="Script" path="res://Scenes/Portal/portal.gd" id="1_fvtj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m25rm"]
 radius = 14.0
@@ -6,11 +9,21 @@ radius = 14.0
 [sub_resource type="Gradient" id="Gradient_vopxw"]
 colors = PackedColorArray(0, 0.207843, 0.894118, 1, 1, 1, 1, 1)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_xtque"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dykbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Portal" type="Area2D" groups=["portal"]]
 z_index = -130
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -2)
 shape = SubResource("CircleShape2D_m25rm")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -27,3 +40,8 @@ angle_max = 23.0
 scale_amount_max = 2.0
 color = Color(0.0901961, 0.690196, 0.854902, 1)
 color_ramp = SubResource("Gradient_vopxw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.6, 3.65)
+sprite_frames = SubResource("SpriteFrames_xtque")
+script = ExtResource("1_fvtj0")
