@@ -11,8 +11,8 @@ func _ready():
 
 func activate_shader():
 	#shader_active = not shader_active
-	var shader = preload("res://Scenes/Explosion/explosion.gdshader") # Ändern Sie path_to_your_shader.shader in den richtigen Pfad
-	shader_material.shader = shader
+	#var shader = preload("res://Scenes/Explosion/explosion.gdshader")
+	shader_material.shader = Global.shaderExlosion
 	set_process(true) # Aktiviert den Prozess, um den Shader zu aktualisieren
 
 func stop_shader():
@@ -28,16 +28,8 @@ func _input(event):
 		Global.empPower = 0
 		$"../Shoot".play()
 		activate_shader()
-		$"../Timer".start()  # Start the timer node to deactivate the shader after 1 second
-		
-#		if(Global.empMegaBeam >= Global.empMegaBeamWin):
-#			Global.magnet = true
-#			Global.empPower = 0
-#			$"../Shoot".play()
-#			activate_shader()
-#			$"../Timer".start()
-#			await get_tree().create_timer(1.5).timeout
-#			get_tree().change_scene_to_file("res://Scenes/Win/win.tscn")
+		$"../Timer".start()  # Start timer node un shader zu deaktivieren
+
 
 func _on_timer_timeout():
 	stop_shader()

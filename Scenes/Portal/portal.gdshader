@@ -7,13 +7,13 @@ uniform float thickness : hint_range(0.0, 1.0, 0.01) = .2;
 
 uniform vec4 color : source_color = vec4(0.0, 0.0, 1.0, 1.0);
 
-uniform float brightness : hint_range(0.0, 15.0, 0.01) = 5.0;
+uniform float brightness : hint_range(0.0, 15.0, 0.01) = 2.0;
 
 uniform float angular_speed : hint_range(-5.0, 5.0, 0.01) = 2.5;
 
 uniform float radial_speed : hint_range(-5.0, 5.0, 0.01) = 1.4;
 
-uniform float alpha : hint_range(0.0, 1.0, 0.01) = .5;
+uniform float alpha : hint_range(0.0, 1.0, 0.01) = .7;
 
 uniform sampler2D noise;
 

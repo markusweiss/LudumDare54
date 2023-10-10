@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://j1dywheenhwd"]
+[gd_scene load_steps=10 format=3 uid="uid://j1dywheenhwd"]
 
+[ext_resource type="Shader" path="res://Scenes/Portal/portal.gdshader" id="1_ar41b"]
 [ext_resource type="Texture2D" uid="uid://dw758l3ev7tcq" path="res://Scenes/Player/ship-partikel.png" id="1_dykbx"]
 [ext_resource type="Script" path="res://Scenes/Portal/portal.gd" id="1_fvtj0"]
 
@@ -8,6 +9,23 @@ radius = 14.0
 
 [sub_resource type="Gradient" id="Gradient_vopxw"]
 colors = PackedColorArray(0, 0.207843, 0.894118, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wlpba"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mx8x2"]
+seamless = true
+noise = SubResource("FastNoiseLite_wlpba")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gg571"]
+shader = ExtResource("1_ar41b")
+shader_parameter/radius = 0.7
+shader_parameter/thickness = 0.2
+shader_parameter/color = Color(0, 0, 1, 1)
+shader_parameter/brightness = 2.0
+shader_parameter/angular_speed = 2.5
+shader_parameter/radial_speed = 1.4
+shader_parameter/alpha = 0.7
+shader_parameter/noise = SubResource("NoiseTexture2D_mx8x2")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xtque"]
 animations = [{
@@ -27,9 +45,9 @@ z_index = -130
 shape = SubResource("CircleShape2D_m25rm")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 200
+amount = 100
 emission_shape = 1
-emission_sphere_radius = 40.0
+emission_sphere_radius = 25.0
 gravity = Vector2(0, -1)
 angular_velocity_min = 100.0
 angular_velocity_max = 100.0
@@ -42,6 +60,8 @@ color = Color(0.0901961, 0.690196, 0.854902, 1)
 color_ramp = SubResource("Gradient_vopxw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.6, 3.65)
+material = SubResource("ShaderMaterial_gg571")
+position = Vector2(-1.90735e-06, 2)
+scale = Vector2(3.92476, 7.32495)
 sprite_frames = SubResource("SpriteFrames_xtque")
 script = ExtResource("1_fvtj0")
