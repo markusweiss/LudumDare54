@@ -15,7 +15,6 @@ func _ready():
 
 
 func _physics_process(delta):
-	#print($hitzone/CollisionShape2D.disabled)
 	var horizontal_direction = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var vertical_direction = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 

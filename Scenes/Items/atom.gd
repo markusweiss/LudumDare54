@@ -29,12 +29,4 @@ func _on_body_entered(body):
 	$AnimatedSprite2D.visible=false
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
-	
-#	if(Global.empMegaBeam >= Global.empMegaBeamWin && Global.setPortal == false):
-#		Global.openPortal()
-#
-#func openPortal():
-#	var portal_temp = spawnPortal.instantiate()
-#	position = Vector2(288, 274)
-#	add_child(portal_temp)
-#	setPortal = true
+

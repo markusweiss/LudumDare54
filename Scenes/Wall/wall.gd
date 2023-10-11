@@ -13,11 +13,14 @@ func _ready():
 		direction = Vector2(0, 1)
 
 func _physics_process(delta):
-	if Global.scoreTogether >= 10000:
+	if Global.scoreTogether >= 20000:
 		speed = 60
 	
-	if Global.scoreTogether >= 30000:
+	if Global.scoreTogether >= 50000:
 		speed = 120
+		
+	if Global.scoreTogether >= 200000:
+		speed = 180	
 	
 	if Global.magnet:
 		position += -direction * speed * delta

@@ -12,7 +12,6 @@ var empMegaBeamWin = 25
 
 #enum itemTypes {asteroid, magnet, emp, portalpower}
 
-#var shader_material = ShaderMaterial.new()
 var shaderPortal = preload("res://Scenes/Portal/portal.gdshader")
 var shaderExlosion = preload("res://Scenes/Explosion/explosion.gdshader")
 
