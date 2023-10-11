@@ -1,34 +1,26 @@
-extends Sprite2D
-
-var shader_active = false
-var shader_material : ShaderMaterial
+extends AnimatedSprite2D
 
 func _ready():
-	shader_material = ShaderMaterial.new()
-	shader_material.shader = null
-	material = shader_material
-	set_process(false) # Deaktiviert den Prozess, um den Shader anfangs auszuschalten
+	if not material or not material is ShaderMaterial:
+		print(Global.shaderExlosion)
+		material = ShaderMaterial.new()   
 
-func activate_shader():
-	#shader_active = not shader_active
-	#var shader = preload("res://Scenes/Explosion/explosion.gdshader")
-	shader_material.shader = Global.shaderExlosion
-	set_process(true) # Aktiviert den Prozess, um den Shader zu aktualisieren
-
+	material.shader = Global.shaderExlosion
+	$".".visible = false
+	
+	
 func stop_shader():
-	shader_material.shader = null
-	set_process(false) # Deaktiviert den Prozess, um den Shader auszuschalten
+	print("stop")
+	$".".visible = false
 
 
 func _input(event):
-		
-	if event.is_action_pressed("emp") && (Global.empPower >= 1  && !shader_active):
-		self.material = shader_material
+	if event.is_action_pressed("emp") && (Global.empPower >= 5):
+		$".".visible = true
 		Global.magnet = true
 		Global.empPower = 0
 		$"../Shoot".play()
-		activate_shader()
-		$"../Timer".start()  # Start timer node un shader zu deaktivieren
+		$"../Timer".start()  # Start timer node um shader zu deaktivieren
 
 
 func _on_timer_timeout():

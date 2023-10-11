@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/Start/start.gd" id="1_0yo5n"]
 [ext_resource type="Texture2D" uid="uid://dxrypusta8p08" path="res://Scenes/Death/static_bg.png" id="1_kfns4"]
-[ext_resource type="PackedScene" uid="uid://bati3kcq2wenx" path="res://Scenes/Explosion/explosion.tscn" id="2_t75fk"]
 [ext_resource type="PackedScene" uid="uid://j1dywheenhwd" path="res://Scenes/Portal/portal.tscn" id="3_kc0g7"]
+[ext_resource type="PackedScene" uid="uid://bati3kcq2wenx" path="res://Scenes/Explosion/explosion.tscn" id="4_76xmo"]
 
 [node name="Start" type="CanvasLayer"]
 script = ExtResource("1_0yo5n")
@@ -107,7 +107,7 @@ text = "Quit Game"
 
 [node name="Portal" parent="." instance=ExtResource("3_kc0g7")]
 
-[node name="Explosion" parent="." instance=ExtResource("2_t75fk")]
+[node name="Explosion" parent="." instance=ExtResource("4_76xmo")]
 
 [connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

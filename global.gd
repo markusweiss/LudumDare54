@@ -8,7 +8,7 @@ var highScore = 0
 var empPower = 0
 var empCapsules = 0
 var empMegaBeam = 0
-var empMegaBeamWin = 1
+var empMegaBeamWin = 25
 
 #enum itemTypes {asteroid, magnet, emp, portalpower}
 

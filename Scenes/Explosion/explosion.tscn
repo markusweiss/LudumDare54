@@ -1,22 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://bati3kcq2wenx"]
+[gd_scene load_steps=7 format=3 uid="uid://bati3kcq2wenx"]
 
+[ext_resource type="Shader" path="res://Scenes/Explosion/explosion.gdshader" id="1_mptc4"]
 [ext_resource type="Texture2D" uid="uid://eud4snmbhx3b" path="res://Scenes/Explosion/explosion_spacer.png" id="1_v8gqf"]
 [ext_resource type="Script" path="res://Scenes/Explosion/explosion.gd" id="2_fkawr"]
 [ext_resource type="AudioStream" uid="uid://bq5wxehtjwaq2" path="res://Sounds/empshoot.mp3" id="3_k2y4b"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yy4um"]
+shader = ExtResource("1_mptc4")
+shader_parameter/color_signal = Vector4(0.3, 0.8, 1, 1)
+shader_parameter/size = 0.5
+shader_parameter/zoom = 8.0
+shader_parameter/speed = 3.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cjfm0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v8gqf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Explosion" type="CanvasLayer"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_yy4um")
 position = Vector2(292, 330.5)
-scale = Vector2(-71.0251, 71.5974)
-texture = ExtResource("1_v8gqf")
+rotation = 3.14159
+scale = Vector2(71.0251, -71.5974)
+sprite_frames = SubResource("SpriteFrames_cjfm0")
 script = ExtResource("2_fkawr")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
+one_shot = true
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_k2y4b")
 volume_db = 17.0
 
-[connection signal="timeout" from="Timer" to="Sprite2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="AnimatedSprite2D" method="_on_timer_timeout"]
