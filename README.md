@@ -11,7 +11,7 @@
 **Game control:**
 
 * Action key: Space
-* Move : ASDW / Arrows Key
+* Move : ASDW / Arrow Keys
 
 **All assets such as sounds and pixel graphics are self-made.**
 
