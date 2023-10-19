@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 100
+var speed = 120
 var rng = RandomNumberGenerator.new()
 var rand_int = rng.randi_range(76, 500)
 

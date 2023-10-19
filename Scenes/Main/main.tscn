@@ -72,7 +72,7 @@ texture = ExtResource("2_espex")
 script = ExtResource("8_mlruu")
 
 [node name="CreateMagnet" type="Timer" parent="SpawnMagnet"]
-wait_time = 4.0
+wait_time = 4.3
 autostart = true
 
 [node name="SpawnEMP" type="Node2D" parent="."]
