@@ -8,7 +8,7 @@ func _ready():
 		Global.highScore =Global.scoreTogether
 	
 func _on_try_again_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Main/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/levels.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()

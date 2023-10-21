@@ -108,6 +108,7 @@ text = "Quit Game"
 [node name="Portal" parent="." instance=ExtResource("3_kc0g7")]
 
 [node name="Explosion" parent="." instance=ExtResource("4_76xmo")]
+visible = false
 
 [connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

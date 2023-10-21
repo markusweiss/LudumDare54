@@ -9,9 +9,16 @@ func _physics_process(delta):
 		timerTime += delta * 10
 		var baseScore = int(round(timerTime)) * 98
 		if (Global.magnet):
-			extraPoints += 10
-			
+			match Global.level:
+				1:
+					extraPoints += 10
+				2:
+					extraPoints += 20
+				3: 
+					extraPoints += 40
+
 		Global.scoreTogether = baseScore + extraPoints
+		
 		$MarginContainer/MarginContainer/HBoxContainer/ScoreValue.text = str(Global.scoreTogether)
 
 		$MarginContainer/MarginContainer/EmpBar/ProgressBar.value = Global.empPower

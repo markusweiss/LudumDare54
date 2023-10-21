@@ -10,6 +10,8 @@ var empCapsules = 0
 var empMegaBeam = 0
 var empMegaBeamWin = 25
 
+var level = 1
+
 #enum itemTypes {asteroid, magnet, emp, portalpower}
 
 var shaderPortal = preload("res://Scenes/Portal/portal.gdshader")
