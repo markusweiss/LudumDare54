@@ -22,7 +22,7 @@ func _physics_process(delta):
 			3: 
 				speed = 80
 	
-	if Global.scoreTogether >= 50000:
+	if Global.scoreTogether >= 60000:
 		match Global.level:
 			1:
 				speed = 120
@@ -31,14 +31,14 @@ func _physics_process(delta):
 			3: 
 				speed = 140
 		
-	if Global.scoreTogether >= 200000:
+	if Global.scoreTogether >= 130000:
 		match Global.level:
 			1:
-				speed = 180
+				speed = 160
 			2:
-				speed = 190
+				speed = 175
 			3: 
-				speed = 200
+				speed = 185
 	
 	if Global.magnet:
 		position += -direction * speed * delta

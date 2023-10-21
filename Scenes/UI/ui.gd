@@ -13,9 +13,9 @@ func _physics_process(delta):
 				1:
 					extraPoints += 10
 				2:
-					extraPoints += 20
+					extraPoints += 30
 				3: 
-					extraPoints += 40
+					extraPoints += 50
 
 		Global.scoreTogether = baseScore + extraPoints
 		
