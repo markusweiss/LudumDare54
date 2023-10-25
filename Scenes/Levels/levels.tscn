@@ -17,10 +17,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -391.0
-offset_top = -528.0
-offset_right = -185.0
-offset_bottom = -120.0
+offset_left = -488.0
+offset_top = -495.5
+offset_right = -88.0
+offset_bottom = -152.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -34,8 +34,8 @@ layout_mode = 2
 layout_mode = 2
 bbcode_enabled = true
 text = "[center]
-Welcome to LudumDare54 -Limited Space
 [color=#ff00ff][font_size=24]MAGNETIC RESCUE[/font_size][/color]
+Select your difficulty level
 
 [center]"
 fit_content = true
@@ -47,30 +47,33 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="bottom" type="PanelContainer" parent="Sprite2D/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-size_flags_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/VBoxContainer/bottom"]
+[node name="CenterContainer" type="CenterContainer" parent="Sprite2D/VBoxContainer/bottom"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D/VBoxContainer/bottom/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
-[node name="Easy" type="Button" parent="Sprite2D/VBoxContainer/bottom/VBoxContainer"]
+[node name="Easy" type="Button" parent="Sprite2D/VBoxContainer/bottom/CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Easy"
 
-[node name="Middle" type="Button" parent="Sprite2D/VBoxContainer/bottom/VBoxContainer"]
+[node name="Middle" type="Button" parent="Sprite2D/VBoxContainer/bottom/CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Middle
 "
 
-[node name="Hard" type="Button" parent="Sprite2D/VBoxContainer/bottom/VBoxContainer"]
+[node name="Hard" type="Button" parent="Sprite2D/VBoxContainer/bottom/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Hard"
 
-[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/Easy" to="." method="_on_easy_pressed"]
-[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/Middle" to="." method="_on_middle_pressed"]
-[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/VBoxContainer/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/CenterContainer/VBoxContainer/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/CenterContainer/VBoxContainer/Middle" to="." method="_on_middle_pressed"]
+[connection signal="pressed" from="Sprite2D/VBoxContainer/bottom/CenterContainer/VBoxContainer/Hard" to="." method="_on_hard_pressed"]
