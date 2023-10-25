@@ -5,7 +5,6 @@ var setPortal = false
 
 func _physics_process(delta):
 	if(Global.empMegaBeam >= Global.empMegaBeamWin && !setPortal):
-		print("win")
 		openPortal()
 		setPortal = true
 

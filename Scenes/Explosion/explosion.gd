@@ -10,7 +10,6 @@ func _ready():
 	
 	
 func stop_shader():
-	print("stop")
 	$".".visible = false
 
 
